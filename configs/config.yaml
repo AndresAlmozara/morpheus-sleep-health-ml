@@ -1,0 +1,78 @@
+data:
+  input_path: data/processed/nhanes_sleep_master_v1.csv
+  file_type: csv
+
+target: short_sleep
+
+drop_columns:
+  - sleep_hours_weekday
+  - told_doctor_trouble_sleeping
+  - systolic_bp_1
+  - diastolic_bp_1
+  - systolic_bp_2
+  - diastolic_bp_2
+  - systolic_bp_3
+  - diastolic_bp_3
+  - current_smoking_frequency
+  - alcohol_past_year_12_drinks
+  - drinks_per_day
+  - vigorous_activity_days
+  - vigorous_activity_minutes
+  - moderate_activity_days
+  - moderate_activity_minutes
+  - phq_little_interest
+  - phq_feeling_down
+  - phq_sleep_problems
+  - phq_low_energy
+  - phq_appetite_problems
+  - phq_feeling_bad_about_self
+  - phq_trouble_concentrating
+  - phq_slow_or_restless
+  - phq_self_harm_thoughts
+
+features:
+  categorical:
+    - trouble_sleeping
+    - told_doctor_sleep_disorder
+    - snoring_frequency
+    - sex
+    - race_ethnicity
+    - education_level
+    - smoked_100_cigarettes_lifetime
+    - alcohol_lifetime_12_drinks
+    - alcohol_frequency
+    - vigorous_activity
+    - moderate_activity
+
+  numeric:
+    - sleep_hours_weekend
+    - age_years
+    - income_to_poverty_ratio
+    - weight_kg
+    - height_cm
+    - body_mass_index
+    - waist_circumference_cm
+    - sedentary_minutes
+    - systolic_bp_mean
+    - diastolic_bp_mean
+
+split:
+  test_size: 0.2
+  random_state: 42
+  stratify: true
+
+preprocessing:
+  numeric:
+    imputer_strategy: median
+    scaler: standard
+  categorical:
+    imputer_strategy: most_frequent
+    encoder: onehot
+    fill_value: missing
+
+save:
+  output_dir: data/processed
+  X_train_name: X_train_preprocessed.csv
+  X_test_name: X_test_preprocessed.csv
+  y_train_name: y_train.csv
+  y_test_name: y_test.csv
