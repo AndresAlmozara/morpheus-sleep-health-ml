@@ -5,6 +5,7 @@ data:
 target: short_sleep
 
 drop_columns:
+  - participant_id
   - sleep_hours_weekday
   - told_doctor_trouble_sleeping
   - systolic_bp_1

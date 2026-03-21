@@ -61,6 +61,7 @@ def get_feature_groups(df: pd.DataFrame, config: dict) -> dict:
     Expected config structure:
     {
         "target": "target_column_name",
+        "drop_columns": [...],   # optional
         "features": {
             "numeric": [...],
             "categorical": [...]
@@ -85,13 +86,15 @@ def get_feature_groups(df: pd.DataFrame, config: dict) -> dict:
     Raises
     ------
     ValueError
-        If target is included in feature lists.
+        If target is included in feature lists, if duplicated features
+        exist across groups, or if dropped columns are also declared as features.
     """
     target_col = get_target_column(config)
 
     features_cfg = config.get("features", {})
     numeric_features = features_cfg.get("numeric", [])
     categorical_features = features_cfg.get("categorical", [])
+    drop_cols = config.get("drop_columns", [])
 
     validate_columns_exist(df, [target_col])
     validate_columns_exist(df, numeric_features)
@@ -102,6 +105,20 @@ def get_feature_groups(df: pd.DataFrame, config: dict) -> dict:
     if target_col in all_features:
         raise ValueError(
             f"Target column '{target_col}' must not be included in feature lists."
+        )
+
+    duplicated_features = sorted(set(numeric_features) & set(categorical_features))
+    if duplicated_features:
+        raise ValueError(
+            "The following columns are declared as both numeric and categorical: "
+            f"{duplicated_features}"
+        )
+
+    dropped_feature_overlap = sorted(set(drop_cols) & set(all_features))
+    if dropped_feature_overlap:
+        raise ValueError(
+            "The following columns appear in both 'drop_columns' and 'features': "
+            f"{dropped_feature_overlap}"
         )
 
     return {
