@@ -1,0 +1,141 @@
+{
+  "target_name": "short_sleep",
+  "source_notebook": "03_feature_engineering.ipynb",
+  "finalist_routes": [
+    {
+      "route_name": "hist_gradient_boosting_base",
+      "feature_space": "base",
+      "selected_recipe": "hgb_legacy_impute_onehot"
+    },
+    {
+      "route_name": "catboost_fe",
+      "feature_space": "fe",
+      "selected_recipe": "catboost_native_missing_cat_token_nan_min"
+    }
+  ],
+  "feature_spaces": {
+    "base_columns": [
+      "sleep_hours_weekend",
+      "trouble_sleeping",
+      "told_doctor_sleep_disorder",
+      "snoring_frequency",
+      "sex",
+      "age_years",
+      "race_ethnicity",
+      "education_level",
+      "income_to_poverty_ratio",
+      "weight_kg",
+      "height_cm",
+      "body_mass_index",
+      "waist_circumference_cm",
+      "smoked_100_cigarettes_lifetime",
+      "alcohol_lifetime_12_drinks",
+      "alcohol_frequency",
+      "vigorous_activity",
+      "moderate_activity",
+      "sedentary_minutes",
+      "systolic_bp_mean",
+      "diastolic_bp_mean"
+    ],
+    "fe_columns": [
+      "sleep_hours_weekend",
+      "age_years",
+      "income_to_poverty_ratio",
+      "weight_kg",
+      "height_cm",
+      "body_mass_index",
+      "waist_circumference_cm",
+      "sedentary_minutes",
+      "systolic_bp_mean",
+      "diastolic_bp_mean",
+      "pulse_pressure",
+      "mean_arterial_pressure",
+      "waist_to_height_ratio",
+      "sleep_symptom_burden",
+      "trouble_sleeping",
+      "told_doctor_sleep_disorder",
+      "snoring_frequency",
+      "sex",
+      "race_ethnicity",
+      "education_level",
+      "smoked_100_cigarettes_lifetime",
+      "alcohol_lifetime_12_drinks",
+      "alcohol_frequency",
+      "vigorous_activity",
+      "moderate_activity",
+      "bp_category_accaha2017",
+      "central_obesity_whtR_flag",
+      "bmi_category",
+      "frequent_snoring_flag",
+      "possible_sdb_risk",
+      "poverty_flag",
+      "weekend_sleep_category",
+      "age_band",
+      "education_group"
+    ]
+  },
+  "catboost_native_recipe_inputs": {
+    "categorical_features": [
+      "age_band",
+      "alcohol_lifetime_12_drinks",
+      "bmi_category",
+      "bp_category_accaha2017",
+      "central_obesity_whtR_flag",
+      "education_group",
+      "education_level",
+      "frequent_snoring_flag",
+      "moderate_activity",
+      "possible_sdb_risk",
+      "poverty_flag",
+      "race_ethnicity",
+      "sex",
+      "smoked_100_cigarettes_lifetime",
+      "snoring_frequency",
+      "told_doctor_sleep_disorder",
+      "trouble_sleeping",
+      "vigorous_activity",
+      "weekend_sleep_category"
+    ],
+    "numeric_features": [
+      "sleep_hours_weekend",
+      "age_years",
+      "income_to_poverty_ratio",
+      "weight_kg",
+      "height_cm",
+      "body_mass_index",
+      "waist_circumference_cm",
+      "sedentary_minutes",
+      "systolic_bp_mean",
+      "diastolic_bp_mean",
+      "pulse_pressure",
+      "mean_arterial_pressure",
+      "waist_to_height_ratio",
+      "sleep_symptom_burden",
+      "alcohol_frequency"
+    ]
+  },
+  "dataset_shapes": {
+    "X_train_base": [
+      5830,
+      21
+    ],
+    "X_test_base": [
+      1458,
+      21
+    ],
+    "X_train_fe": [
+      5830,
+      34
+    ],
+    "X_test_fe": [
+      1458,
+      34
+    ],
+    "y_train": [
+      5830
+    ],
+    "y_test": [
+      1458
+    ]
+  }
+}

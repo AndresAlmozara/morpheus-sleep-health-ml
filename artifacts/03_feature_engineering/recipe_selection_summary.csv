@@ -1,0 +1,3 @@
+route,selected_recipe,selection_note
+hist_gradient_boosting_base,hgb_legacy_impute_onehot,Best overall profile on F1 and balanced accuracy
+catboost_fe,catboost_native_missing_cat_token_nan_min,Best overall native CatBoost recipe

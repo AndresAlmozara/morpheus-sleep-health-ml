@@ -1,0 +1,4 @@
+route,recipe_name,f1_mean,f1_std,balanced_accuracy_mean,balanced_accuracy_std,roc_auc_mean,roc_auc_std,average_precision_mean,average_precision_std
+catboost_fe,catboost_native_missing_cat_token_nan_min,0.6084,0.029,0.7128,0.0181,0.8133,0.0106,0.7287,0.0219
+catboost_fe,catboost_native_missing_cat_token_nan_max,0.6027,0.0305,0.7097,0.0189,0.8085,0.0145,0.7308,0.0235
+catboost_fe,catboost_legacy_impute_onehot,0.6022,0.0282,0.7096,0.0174,0.8044,0.0126,0.7238,0.0233

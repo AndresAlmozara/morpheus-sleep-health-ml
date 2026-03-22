@@ -1,0 +1,4 @@
+route,recipe_name,f1_mean,f1_std,balanced_accuracy_mean,balanced_accuracy_std,roc_auc_mean,roc_auc_std,average_precision_mean,average_precision_std
+hist_gradient_boosting_base,hgb_legacy_impute_onehot,0.6089,0.0218,0.7122,0.0138,0.796,0.0125,0.7174,0.0144
+hist_gradient_boosting_base,hgb_native_missing_native_categorical,0.6064,0.031,0.71,0.02,0.7998,0.0129,0.7149,0.0205
+hist_gradient_boosting_base,hgb_native_missing_explicit_cat_missing,0.6064,0.031,0.71,0.02,0.7998,0.0129,0.7149,0.0205
