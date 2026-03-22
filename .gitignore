@@ -7,3 +7,8 @@ venv/
 data/raw/
 data/processed/
 .DS_Store
+catboost_info/
+*.log
+.jupyter/
+.pytest_cache/
+.ruff_cache/

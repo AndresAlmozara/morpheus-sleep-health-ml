@@ -1,0 +1,39 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "morpheus-sleep-health-ml"
+version = "0.1.0"
+description = "Portfolio-grade machine learning project for short sleep prediction using NHANES 2017–2020."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [
+  { name = "Andrés Almozara García" }
+]
+dependencies = [
+  "numpy",
+  "pandas",
+  "scikit-learn",
+  "scipy",
+  "matplotlib",
+  "seaborn",
+  "jupyter",
+  "ipykernel",
+  "catboost",
+  "xgboost",
+  "joblib"
+]
+
+[project.optional-dependencies]
+dev = [
+  "ruff",
+  "black",
+  "pytest"
+]
+
+[tool.ruff]
+line-length = 100
+
+[tool.black]
+line-length = 100
